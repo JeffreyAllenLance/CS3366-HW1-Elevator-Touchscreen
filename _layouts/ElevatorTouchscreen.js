@@ -6,9 +6,9 @@
     let clickedGround = false;
 
     function preload(){
-        screen = loadImage("https://raw.githubusercontent.com/JeffreyAllenLance/Elevator-Touchscreen/master/Images/Elevator%20Screen.jpg");
-        groundButton = loadImage("https://raw.githubusercontent.com/JeffreyAllenLance/Elevator-Touchscreen/master/Images/Ground%20Floor.jpg");
-        groundButtonPressed = loadImage("https://raw.githubusercontent.com/JeffreyAllenLance/Elevator-Touchscreen/master/Images/Ground%20Floor%20Pressed.jpg");
+        screen = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2ac466d/Images/Elevator%20Screen.jpg");
+        groundButton = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2ac466d/Images/Ground%20Floor.jpg");
+        groundButtonPressed = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2ac466d/Images/Ground%20Floor%20Pressed.jpg");
     }
 
     function setup() {
