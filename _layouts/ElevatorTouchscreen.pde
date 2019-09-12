@@ -1,4 +1,6 @@
-/* @pjs preload="Elevator Screen.jpg", "Ground Floor.jpg", "Ground Floor Pressed.jpg"; */
+/* @pjs preload="https://raw.githubusercontent.com/JeffreyAllenLance/Elevator-Touchscreen/master/Images/Elevator%20Screen.jpg,
+"https://raw.githubusercontent.com/JeffreyAllenLance/Elevator-Touchscreen/master/Images/Ground%20Floor.jpg",
+"https://raw.githubusercontent.com/JeffreyAllenLance/Elevator-Touchscreen/master/Images/Ground%20Floor%20Pressed.jpg"; */
 
     PImage screen, groundButton, groundButtonPressed;
 
