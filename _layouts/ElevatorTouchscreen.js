@@ -12,7 +12,8 @@
     }
 
     function setup() {
-        createCanvas(431, 632);
+        let canvas = createCanvas(431, 632);
+        canvas.parent('screenHolder');
         groundButtonX = 0;
         groundButtonY = 400;
     }
