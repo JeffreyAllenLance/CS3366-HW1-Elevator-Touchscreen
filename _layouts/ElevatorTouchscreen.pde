@@ -1,3 +1,4 @@
+
     PImage screen, groundButton, groundButtonPressed;
 
     int screenWidth=431, screenHeight=632;
@@ -6,21 +7,25 @@
     boolean groundButtonOver = false;
     boolean clickedGround = false;
 
-    void setup(){
+    void settings() {
         size(431, 632);
+    }
+
+    void setup(){
+
         textAlign(CENTER,CENTER);
         fill(255,0,0);
         textSize(28);
-        screen = loadImage("https://github.com/JeffreyAllenLance/Elevator-Touchscreen/blob/master/Images/Elevator%20Screen.jpg");
-        groundButton = loadImage("https://github.com/JeffreyAllenLance/Elevator-Touchscreen/blob/master/Images/Ground%20Floor.jpg");
-        groundButtonPressed = loadImage("https://github.com/JeffreyAllenLance/Elevator-Touchscreen/blob/master/Images/Ground%20Floor%20Pressed.jpg");
+        screen = loadImage("https://raw.githubusercontent.com/JeffreyAllenLance/Elevator-Touchscreen/master/Images/Elevator%20Screen.jpg");
+        groundButton = loadImage("https://raw.githubusercontent.com/JeffreyAllenLance/Elevator-Touchscreen/master/Images/Ground%20Floor.jpg");
+        groundButtonPressed = loadImage("https://raw.githubusercontent.com/JeffreyAllenLance/Elevator-Touchscreen/master/Images/Ground%20Floor%20Pressed.jpg");
         groundButtonX = 0;
         groundButtonY = 400;
     }
 
     void draw(){
         background(0);
-        update(mouseX, mouseY);
+        update();
         image(screen,0,0, screenWidth,screenHeight);
         if(clickedGround){
             image(groundButtonPressed, 0, 400, groundButtonWidth, groundButtonHeight);
@@ -29,7 +34,7 @@
             image(groundButton, 0, 400, groundButtonWidth, groundButtonHeight);
         }
     }
-    update(int x, int y) {
+    void update() {
         if ( isOverGroundButton(groundButtonX, groundButtonY, groundButtonWidth, groundButtonHeight) ) {
             groundButtonOver = true;
         } else {
@@ -49,5 +54,4 @@
             return false;
         }
     }
-}
 
