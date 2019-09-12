@@ -7,12 +7,8 @@
     boolean groundButtonOver = false;
     boolean clickedGround = false;
 
-    void settings() {
-        size(431, 632);
-    }
-
     void setup(){
-
+        size(431, 632);
         textAlign(CENTER,CENTER);
         fill(255,0,0);
         textSize(28);
