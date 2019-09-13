@@ -27,7 +27,7 @@ let message = false;
 
 function preload() {
     //Load images
-    screen = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/Elevator Panel.png");
+    screen = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@88b98f4/Project%20Images/Elevator Panel.png");
     groundFloor = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/Ground Floor.png");
     groundFloorPressed = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/Ground Floor Pressed.png");
     secondFloor = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/2nd Floor.png");
