@@ -20,6 +20,7 @@ let closeButtonOver = false;
 let openButtonOver = false;
 let clickedSecond = false;
 let clickedThird = false;
+let clickedOpen = false;
 
 //Initialize timed message flag
 let message = false;
@@ -74,7 +75,7 @@ function draw() {
 
     //Handle timed message
     if (message) {
-        if (millis() - time <= wait) {
+        if (millis() - time <= wait && clickedOpen == false) {
             image(closingDoors, closingDoorsX, closingDoorsY, textDisplayWidth, textDisplayHeight);
             image(closeDoorsPressed, closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight);
         } else {
@@ -98,11 +99,13 @@ function draw() {
         } else if (isOverOpenButton(openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight)) {
             image(openDoorsPressed, openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight);
             image(holdingDoors, holdingDoorsX, holdingDoorsY, textDisplayWidth, textDisplayHeight);
+            clickedOpen = true;
             //For close doors, show pressed while holding and then save time for timer
         } else if (isOverCloseButton(closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight)) {
             image(closeDoorsPressed, closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight);
             image(closingDoors, closingDoorsX, closingDoorsY, textDisplayWidth, textDisplayHeight);
             message = true;
+            clickedOpen = false;
             time = millis();
         }
     }
