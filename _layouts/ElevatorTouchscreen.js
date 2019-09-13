@@ -1,51 +1,194 @@
-    let screen, groundButton, groundButtonPressed;
-    let screenWidth=431, screenHeight=632;
-    let groundButtonX, groundButtonY;
-    let groundButtonWidth=253, groundButtonHeight=57;
-    let groundButtonOver = false;
-    let clickedGround = false;
 
-    function preload(){
-        screen = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2ac466d/Images/Elevator%20Screen.jpg");
-        groundButton = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2ac466d/Images/Ground%20Floor.jpg");
-        groundButtonPressed = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2ac466d/Images/Ground%20Floor%20Pressed.jpg");
-    }
+let screenWidth = 890, screenHeight = 1090;
 
-    function setup() {
-        let canvas = createCanvas(431, 632);
-        canvas.parent('screenHolder');
-        groundButtonX = 0;
-        groundButtonY = 400;
-    }
+//Initialize button position variables and dimensions
+let groundFloorX, groundFloorY, secondFloorX, secondFloorY, thirdFloorX, thirdFloorY;
+let openDoorsX, openDoorsY, closeDoorsX, closeDoorsY, closingDoorsX, closingDoorsY, holdingDoorsX, holdingDoorsY;
+let floorButtonWidth = 420, floorButtonHeight = 125;
+let doorButtonWidth = 172, doorButtonHeight = 150;
+let textDisplayWidth = 230, textDisplayHeight = 30;
 
-    function draw() {
-        background(0);
-        update();
-        image(screen,0,0, screenWidth,screenHeight);
-        if(clickedGround){
-            image(groundButtonPressed, 0, 400, groundButtonWidth, groundButtonHeight);
-        }
-        else {
-            image(groundButton, 0, 400, groundButtonWidth, groundButtonHeight);
-        }
-    }
-    function update() {
-        if ( isOverGroundButton(groundButtonX, groundButtonY, groundButtonWidth, groundButtonHeight) ) {
-            groundButtonOver = true;
+//Initialize time and wait variables
+let time;
+let wait = 3000;
+
+//Initialize over and clicked boolean flags
+let groundButtonOver = false;
+let secondButtonOver = false;
+let thirdButtonOver = false;
+let closeButtonOver = false;
+let openButtonOver = false;
+let clickedSecond = false;
+let clickedThird = false;
+
+//Initialize timed message flag
+let message = false;
+
+function preload() {
+    //Load images
+    screen = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/Elevator Panel.png");
+    groundFloor = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/Ground Floor.png");
+    groundFloorPressed = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/Ground Floor Pressed.png");
+    secondFloor = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/2nd Floor.png");
+    secondFloorPressed = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/2nd Floor Pressed.png");
+    thirdFloor = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/3rd Floor.png");
+    thirdFloorPressed = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/3rd Floor Pressed.png");
+    closeDoors = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/Close Doors.png");
+    closeDoorsPressed = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/Close Doors Pressed.png");
+    openDoors = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/Open Doors.png");
+    openDoorsPressed = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/Open Doors Pressed.png");
+    holdingDoors = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/Holding Doors.png");
+    closingDoors = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@2b0cf58/Project%20Images/Closing Doors.png");
+}
+
+function setup() {
+    //Create canvas
+    let canvas = createCanvas(screenWidth, screenHeight);
+    canvas.parent('screenHolder');
+
+    //Set image positions
+    groundFloorX = 173;
+    groundFloorY = 550;
+    secondFloorX = 173;
+    secondFloorY = 415;
+    thirdFloorX = 173;
+    thirdFloorY = 280;
+    closeDoorsX = 173;
+    closeDoorsY = 685;
+    openDoorsX = 173;
+    openDoorsY = 845;
+    closingDoorsX = 360;
+    closingDoorsY = 760;
+    holdingDoorsX = 360;
+    holdingDoorsY = 920;
+}
+
+function draw() {
+    background(0);
+    update();
+    //Display screen, ground floor, open, and close door buttons
+    image(screen, 0, 0, screenWidth, screenHeight);
+    image(groundFloor, groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight);
+    image(openDoors, openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight);
+    image(closeDoors, closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight);
+
+    //Handle timed message
+    if (message) {
+        if (millis() - time <= wait) {
+            image(closingDoors, closingDoorsX, closingDoorsY, textDisplayWidth, textDisplayHeight);
+            image(closeDoorsPressed, closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight);
         } else {
-            groundButtonOver = false;
+            message = false;
         }
     }
-    function mousePressed(){
-        if(groundButtonOver){
-            clickedGround = true;
+
+    //Display button image according to clicked button flag
+    if (clickedSecond) {
+        image(secondFloorPressed, secondFloorX, secondFloorY, floorButtonWidth, floorButtonHeight);
+    } else image(secondFloor, secondFloorX, secondFloorY, floorButtonWidth, floorButtonHeight);
+
+    if (clickedThird) {
+        image(thirdFloorPressed, thirdFloorX, thirdFloorY, floorButtonWidth, floorButtonHeight);
+    } else image(thirdFloor, thirdFloorX, thirdFloorY, floorButtonWidth, floorButtonHeight);
+
+    //For ground floor and open doors, show pressed only while holding mouse button
+    if (mousePressed) {
+        if (isOverGroundButton(groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight)) {
+            image(groundFloorPressed, groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight);
+        } else if (isOverOpenButton(openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight)) {
+            image(openDoorsPressed, openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight);
+            image(holdingDoors, holdingDoorsX, holdingDoorsY, textDisplayWidth, textDisplayHeight);
+            //For close doors, show pressed while holding and then save time for timer
+        } else if (isOverCloseButton(closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight)) {
+            image(closeDoorsPressed, closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight);
+            image(closingDoors, closingDoorsX, closingDoorsY, textDisplayWidth, textDisplayHeight);
+            message = true;
+            time = millis();
         }
     }
-    function isOverGroundButton(x, y, width, height)  {
-        if (mouseX >= x && mouseX <= x+width &&
-                mouseY >= y && mouseY <= y+height) {
-            return true;
-        } else {
-            return false;
-        }
+}
+function update() {
+    /* Update mouse position to check for button hover */
+
+    if (isOverSecondButton(secondFloorX, secondFloorY, floorButtonWidth, floorButtonHeight)) {
+        groundButtonOver = false;
+        secondButtonOver = true;
+        thirdButtonOver = false;
+        openButtonOver = false;
+        closeButtonOver = false;
+    } else if (isOverThirdButton(thirdFloorX, thirdFloorY, floorButtonWidth, floorButtonHeight)) {
+        groundButtonOver = false;
+        secondButtonOver = false;
+        thirdButtonOver = true;
+        openButtonOver = false;
+        closeButtonOver = false;
+    } else if (isOverOpenButton(openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight)) {
+        groundButtonOver = false;
+        secondButtonOver = false;
+        thirdButtonOver = false;
+        openButtonOver = true;
+        closeButtonOver = false;
+    } else if (isOverCloseButton(closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight)) {
+        groundButtonOver = false;
+        secondButtonOver = false;
+        thirdButtonOver = false;
+        openButtonOver = false;
+        closeButtonOver = true;
+    } else {
+        groundButtonOver = false;
+        secondButtonOver = false;
+        thirdButtonOver = false;
+        openButtonOver = false;
+        closeButtonOver = false;
     }
+}
+function mousePressed() {
+    //If mouse is clicked on button, raise clicked flag
+    if (secondButtonOver) {
+        clickedSecond = true;
+    } else if (thirdButtonOver) {
+        clickedThird = true;
+    }
+}
+/* The following functions return a boolean value to raise a flag when the mouse is over a button */
+function isOverGroundButton(x, y, width, height) {
+    if (mouseX >= x && mouseX <= x + width &&
+        mouseY >= y && mouseY <= y + height) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function isOverSecondButton(x, y, width, height) {
+    if (mouseX >= x && mouseX <= x + width &&
+        mouseY >= y && mouseY <= y + height) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function isOverThirdButton(x, y, width, height) {
+    if (mouseX >= x && mouseX <= x + width &&
+        mouseY >= y && mouseY <= y + height) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function isOverOpenButton(x, y, width, height) {
+    if (mouseX >= x && mouseX <= x + width &&
+        mouseY >= y && mouseY <= y + height) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function isOverCloseButton(x, y, width, height) {
+    if (mouseX >= x && mouseX <= x + width &&
+        mouseY >= y && mouseY <= y + height) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
