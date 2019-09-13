@@ -1,12 +1,12 @@
 
-let screenWidth = 890, screenHeight = 1090;
+let screenWidth = 668, screenHeight = 818;
 
 //Initialize button position variables and dimensions
 let groundFloorX, groundFloorY, secondFloorX, secondFloorY, thirdFloorX, thirdFloorY;
 let openDoorsX, openDoorsY, closeDoorsX, closeDoorsY, closingDoorsX, closingDoorsY, holdingDoorsX, holdingDoorsY;
-let floorButtonWidth = 420, floorButtonHeight = 125;
-let doorButtonWidth = 172, doorButtonHeight = 150;
-let textDisplayWidth = 230, textDisplayHeight = 30;
+let floorButtonWidth = 315, floorButtonHeight = 94;
+let doorButtonWidth = 120, doorButtonHeight = 113;
+let textDisplayWidth = 173, textDisplayHeight = 23;
 
 //Initialize time and wait variables
 let time;
@@ -48,20 +48,20 @@ function setup() {
     canvas.parent('screenHolder');
 
     //Set image positions
-    groundFloorX = 173;
-    groundFloorY = 550;
-    secondFloorX = 173;
-    secondFloorY = 415;
-    thirdFloorX = 173;
-    thirdFloorY = 280;
-    closeDoorsX = 173;
-    closeDoorsY = 685;
-    openDoorsX = 173;
-    openDoorsY = 845;
-    closingDoorsX = 360;
-    closingDoorsY = 760;
-    holdingDoorsX = 360;
-    holdingDoorsY = 920;
+    groundFloorX = 130;
+    groundFloorY = 413;
+    secondFloorX = 130;
+    secondFloorY = 311;
+    thirdFloorX = 130;
+    thirdFloorY = 210;
+    closeDoorsX = 130;
+    closeDoorsY = 514;
+    openDoorsX = 130;
+    openDoorsY = 634;
+    closingDoorsX = 270;
+    closingDoorsY = 570;
+    holdingDoorsX = 270;
+    holdingDoorsY = 690;
 }
 
 function draw() {
@@ -194,4 +194,5 @@ function isOverCloseButton(x, y, width, height) {
         return false;
     }
 }
+
 
