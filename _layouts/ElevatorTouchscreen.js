@@ -92,7 +92,7 @@ function draw() {
     } else image(thirdFloor, thirdFloorX, thirdFloorY, floorButtonWidth, floorButtonHeight);
 
     //For ground floor and open doors, show pressed only while holding mouse button
-    if (mousePressed) {
+    if (mouseIsPressed) {
         if (isOverGroundButton(groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight)) {
             image(groundFloorPressed, groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight);
         } else if (isOverOpenButton(openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight)) {
