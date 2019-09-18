@@ -6,8 +6,8 @@ When an average user steps into an elevator, they have exactly one goal: to find
 
 The following elevator can be found in the Philadelphia International Airport in Terminal B:
 
-![Image of PHL Elevator](https://github.com/JeffreyAllenLance/Elevator-Touchscreen/blob/master/Project%20Images/PHL-Elevator.png)
-![Gif of PHL Elevator](https://github.com/JeffreyAllenLance/Elevator-Touchscreen/blob/master/Project%20Images/PHL-Elevator.gif)
+![Image of PHL Elevator](https://raw.githubusercontent.com/JeffreyAllenLance/CS3366-HW1-Elevator-Touchscreen/master/Project%20Images/PHL-Elevator.png)
+![Gif of PHL Elevator](https://raw.githubusercontent.com/JeffreyAllenLance/CS3366-HW1-Elevator-Touchscreen/master/Project%20Images/PHL-Elevator.gif)
 
 As you can see, there are two major issues with this design. The first is that there are, for no discernible reason, two different sets of buttons to open and close the elevator doors, and neither gives any meaningful feedback when pressed. The second is that, although the floor buttons are simply marked and light up when pressed, they are laid out horizontally rather than vertically. 
 
@@ -21,7 +21,7 @@ Next, we can have just one set of open and close buttons, placed right underneat
 
 Here is a simple sketch of the revised layout with the extra information:
 
-![Image of Screen Sketch](https://github.com/JeffreyAllenLance/Elevator-Touchscreen/blob/master/Project%20Images/ScreenSketchRevised2.png)
+![Image of Screen Sketch](https://raw.githubusercontent.com/JeffreyAllenLance/CS3366-HW1-Elevator-Touchscreen/master/Project%20Images/ScreenSketchRevised2.png)
 
 ### Implementation
 
