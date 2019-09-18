@@ -53,8 +53,8 @@
         holdingDoors = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@ae249ef/Project%20Images/HoldingDoors.png");
         closingDoors = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@ae249ef/Project%20Images/ClosingDoors.png");
         person = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@ae249ef/Project%20Images/PersonIcon.png");
-        goingUp = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@44940fe/Project%20Images/GoingUp.png");
-        goingDown = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@44940fe/Project%20Images/GoingDown.png");
+        goingUp = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@e7ae4a6/Project%20Images/GoingUp.png");
+        goingDown = loadImage("https://cdn.jsdelivr.net/gh/jeffreyallenlance/Elevator-Touchscreen@e7ae4a6/Project%20Images/GoingDown.png");
     }
 
      function setup() {
