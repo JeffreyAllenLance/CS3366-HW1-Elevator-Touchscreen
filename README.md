@@ -21,7 +21,7 @@ Next, we can have just one set of open and close buttons, placed right underneat
 
 Here is a simple sketch of the revised layout with the extra information:
 
-![Image of Screen Sketch](https://cdn.jsdelivr.net/gh/jeffreyallenlance/CS3366-HW1-Elevator-Touchscreen@0b8e0826/Project%20Images/ScreenSketchRevised2.png)
+![Image of Screen Sketch](https://cdn.jsdelivr.net/gh/jeffreyallenlance/CS3366-HW1-Elevator-Touchscreen@b8e0826/Project%20Images/ScreenSketchRevised2.png)
 
 ### Implementation
 
