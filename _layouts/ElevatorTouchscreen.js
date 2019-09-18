@@ -7,7 +7,8 @@
     let personGroundX, personGroundY, personSecondX, personSecondY, goingUpX, goingUpY, goingDownX, goingDownY;
     let floorButtonWidth=281, floorButtonHeight=94;
     let doorButtonWidth=120, doorButtonHeight=109;
-    let goingButtonWidth=133, goingButtonHeight=189;
+    let goingDownButtonWidth=106, goingDownButtonHeight=132;
+    let goingUpButtonWidth=81, goingUpButtonHeight=130;
     let holdingWidth=135, holdingHeight=20;
     let closingWidth=163, closingHeight=20;
     let personWidth = 33, personHeight = 75;
@@ -109,14 +110,14 @@
             if(millis() - timeMove <= waitMove && lastFloor == "ground"){
                 image(secondFloorPressed, secondFloorX, secondFloorY, floorButtonWidth, floorButtonHeight);
                 if(millis() - timeMove >= 500){
-                    image(goingUp, goingUpX, goingUpY, goingButtonWidth, goingButtonHeight);
+                    image(goingUp, goingUpX, goingUpY, goingUpButtonWidth, goingUpButtonHeight);
                 } else {
                     image(person, personGroundX, personGroundY, personWidth, personHeight);
                 }
             } else if(millis() - timeMove <= waitMove && lastFloor == "second"){
                 image(groundFloorPressed, groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight);
                 if (millis() - timeMove >= 500){
-                    image(goingDown, goingDownX, goingDownY, goingButtonWidth, goingButtonHeight);
+                    image(goingDown, goingDownX, goingDownY, goingDownButtonWidth, goingDownButtonHeight);
                 } else{
                     image(person, personSecondX, personSecondY, personWidth, personHeight);
                 }
