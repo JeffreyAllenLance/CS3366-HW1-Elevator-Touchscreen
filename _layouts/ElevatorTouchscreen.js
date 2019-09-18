@@ -172,9 +172,9 @@
 
             //For ground floor and open doors, show pressed only while holding mouse button
             if(mouseIsPressed){
-                if (isOverBasementButton(basementX, basementY, floorButtonWidth, floorButtonHeight)){
+                if (isOverBasementButton(basementX, basementY, floorButtonWidth, floorButtonHeight) && message == false && moving == false){
                     image(basementPressed, basementX, basementY, floorButtonWidth, floorButtonHeight);
-                } else if (isOverOpenButton(openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight)){
+                } else if (isOverOpenButton(openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight) && moving == false){
                     image(openDoorsPressed, openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight);
                     image(holdingDoors, holdingDoorsX, holdingDoorsY, holdingWidth, holdingHeight);
                     clickedOpen = true;
