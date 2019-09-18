@@ -29,4 +29,4 @@ Here is a possible implementation of the proposed solution. All of the proposed 
 
 Also, to accomodate occupants with visual impairments, braille descriptions have been placed next to each button and a braille directive at the top tells users to touch the screen directly to the right. Moreover, a real-world implementation could provide auditory feedback for each action (selecting a floor, holding the doors, etc.), as well as force feedback in the form of vibration from the screen when pressed.
 
-With these changes, any potential user should be able to step into the elevator, immediately see which floor they are on and find the floor they need, select that floor and receive feedback on the selection, and finally receive feedback that the elevator is moving to the selected floor.
+With these changes, any potential user should be able to step into the elevator, immediately see which floor they are on, find the floor they need, select that floor and receive feedback on the selection, and finally receive feedback that the elevator is moving to the selected floor.
