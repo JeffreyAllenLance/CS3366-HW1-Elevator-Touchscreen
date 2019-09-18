@@ -1,4 +1,6 @@
-## Overview
+## Elevator Touchscreen Concept
+
+### Overview
 
 When an average user steps into an elevator, they have exactly one goal: to find the floor they need, select it, and travel. To this end, the best control panel designs present the available floor options in a clear and simple way that sensibly corresponds with the layout of the building. The panel is not unnecessarily cluttered, the buttons are clearly marked, and they provide some kind of feedback when pressed. In this project, we'll take a look at a design that could stand to be improved, propose some solutions, and offer an example for how those solutions might be implemented on a touch interface.
 
