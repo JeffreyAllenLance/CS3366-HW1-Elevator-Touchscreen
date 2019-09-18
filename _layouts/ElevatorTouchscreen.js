@@ -138,7 +138,7 @@
             //Display button image and floor icon according to clicked button flag and current floor
             if(onGround == true){
                 image(person, personGroundX, personGroundY, personWidth, personHeight);
-                if(mousePressed){
+                if(mouseIsPressed){
                     if(isOverGroundButton(groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight)){
                         image(groundFloorPressed, groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight);
                     } else if (isOverSecondButton(secondFloorX, secondFloorY, floorButtonWidth, floorButtonHeight)){
@@ -149,7 +149,7 @@
                 }
             } else if (onSecond == true){
                 image(person, personSecondX, personSecondY, personWidth, personHeight);
-                if(mousePressed){
+                if(mouseIsPressed){
                     if(isOverSecondButton(secondFloorX, secondFloorY, floorButtonWidth, floorButtonHeight)){
                         image(secondFloorPressed, secondFloorX, secondFloorY, floorButtonWidth, floorButtonHeight);
                     } else if (isOverGroundButton(groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight)){
@@ -161,7 +161,7 @@
             }
 
             //For ground floor and open doors, show pressed only while holding mouse button
-            if(mousePressed){
+            if(mouseIsPressed){
                 if (isOverBasementButton(basementX, basementY, floorButtonWidth, floorButtonHeight)){
                     image(basementPressed, basementX, basementY, floorButtonWidth, floorButtonHeight);
                 } else if (isOverOpenButton(openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight)){
