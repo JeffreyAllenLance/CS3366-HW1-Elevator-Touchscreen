@@ -7,8 +7,9 @@
     let personGroundX, personGroundY, personSecondX, personSecondY, goingUpX, goingUpY, goingDownX, goingDownY;
     let floorButtonWidth=281, floorButtonHeight=94;
     let doorButtonWidth=120, doorButtonHeight=109;
-    let goingButtonWidth=133, goingButtonHeight=179;
-    let textDisplayWidth=135, textDisplayHeight=20;
+    let goingButtonWidth=133, goingButtonHeight=189;
+    let holdingWidth=135, holdingHeight=20;
+    let closingWidth=163, closingHeight=20;
     let personWidth = 33, personHeight = 75;
 
     //Initialize time and wait variables
@@ -107,10 +108,18 @@
             //If in moving wait period, display pressed button according to last floor
             if(millis() - timeMove <= waitMove && lastFloor == "ground"){
                 image(secondFloorPressed, secondFloorX, secondFloorY, floorButtonWidth, floorButtonHeight);
-                image(goingUp, goingUpX, goingUpY, goingButtonWidth, goingButtonHeight);
+                if(millis() - timeMove >= 500){
+                    image(goingUp, goingUpX, goingUpY, goingButtonWidth, goingButtonHeight);
+                } else {
+                    image(person, personGroundX, personGroundY, personWidth, personHeight);
+                }
             } else if(millis() - timeMove <= waitMove && lastFloor == "second"){
                 image(groundFloorPressed, groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight);
-                image(goingDown, goingDownX, goingDownY, goingButtonWidth, goingButtonHeight);
+                if (millis() - timeMove >= 500){
+                    image(goingDown, goingDownX, goingDownY, goingButtonWidth, goingButtonHeight);
+                } else{
+                    image(person, personSecondX, personSecondY, personWidth, personHeight);
+                }
             } else{
                 //When moving has stopped, set flag to false and switch last floor
                 moving = false;
@@ -128,7 +137,7 @@
             //Handle timed message for closing doors
             if(message){
                 if(millis() - timeClose <= waitClose && clickedOpen == false){
-                    image(closingDoors, closingDoorsX, closingDoorsY, textDisplayWidth, textDisplayHeight);
+                    image(closingDoors, closingDoorsX, closingDoorsY, closingWidth, closingHeight);
                     image(closeDoorsPressed, closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight);
                 } else{
                     message = false;
@@ -138,7 +147,7 @@
             //Display button image and floor icon according to clicked button flag and current floor
             if(onGround == true){
                 image(person, personGroundX, personGroundY, personWidth, personHeight);
-                if(mouseIsPressed){
+                if(mouseIsPressed && message == false){
                     if(isOverGroundButton(groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight)){
                         image(groundFloorPressed, groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight);
                     } else if (isOverSecondButton(secondFloorX, secondFloorY, floorButtonWidth, floorButtonHeight)){
@@ -149,7 +158,7 @@
                 }
             } else if (onSecond == true){
                 image(person, personSecondX, personSecondY, personWidth, personHeight);
-                if(mouseIsPressed){
+                if(mouseIsPressed && message == false){
                     if(isOverSecondButton(secondFloorX, secondFloorY, floorButtonWidth, floorButtonHeight)){
                         image(secondFloorPressed, secondFloorX, secondFloorY, floorButtonWidth, floorButtonHeight);
                     } else if (isOverGroundButton(groundFloorX, groundFloorY, floorButtonWidth, floorButtonHeight)){
@@ -166,12 +175,12 @@
                     image(basementPressed, basementX, basementY, floorButtonWidth, floorButtonHeight);
                 } else if (isOverOpenButton(openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight)){
                     image(openDoorsPressed, openDoorsX, openDoorsY, doorButtonWidth, doorButtonHeight);
-                    image(holdingDoors, holdingDoorsX, holdingDoorsY, textDisplayWidth, textDisplayHeight);
+                    image(holdingDoors, holdingDoorsX, holdingDoorsY, holdingWidth, holdingHeight);
                     clickedOpen = true;
                     //For close doors, show pressed while holding and then save time for timer
                 } else if (isOverCloseButton(closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight)){
                     image(closeDoorsPressed, closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight);
-                    image(closingDoors, closingDoorsX, closingDoorsY, textDisplayWidth, textDisplayHeight);
+                    image(closingDoors, closingDoorsX, closingDoorsY, closingWidth, closingHeight);
                     message = true;
                     clickedOpen = false;
                     timeClose = millis();
