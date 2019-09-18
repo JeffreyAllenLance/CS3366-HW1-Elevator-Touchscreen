@@ -179,7 +179,7 @@
                     image(holdingDoors, holdingDoorsX, holdingDoorsY, holdingWidth, holdingHeight);
                     clickedOpen = true;
                     //For close doors, show pressed while holding and then save time for timer
-                } else if (isOverCloseButton(closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight)){
+                } else if (isOverCloseButton(closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight) && message == false){
                     image(closeDoorsPressed, closeDoorsX, closeDoorsY, doorButtonWidth, doorButtonHeight);
                     image(closingDoors, closingDoorsX, closingDoorsY, closingWidth, closingHeight);
                     message = true;
