@@ -9,7 +9,7 @@ The following elevator can be found in the Philadelphia International Airport in
 ![Image of PHL Elevator](https://cdn.jsdelivr.net/gh/jeffreyallenlance/CS3366-HW1-Elevator-Touchscreen@0fd9d30/Project%20Images/PHL-Elevator.png)
 ![Gif of PHL Elevator](https://cdn.jsdelivr.net/gh/jeffreyallenlance/CS3366-HW1-Elevator-Touchscreen@306c8a6/Project%20Images/PHL-Elevator.gif)
 
-As you can see, there are two major issues with this design. The first is that there are, for no discernible reason, two different sets of buttons to open and close the elevator doors, and neither gives any meaningful feedback when pressed. The second is that, although the floor buttons are simply marked and light up when pressed, they are laid out horizontally rather than vertically. 
+There are two major issues with this design. The first is that there are, for no discernible reason, two different sets of buttons to open and close the elevator doors, and neither gives any meaningful feedback when pressed. The second is that, although the floor buttons are simply marked and light up when pressed, they are laid out horizontally rather than vertically. 
 
 There are also other more minor issues, such as no visual indicator of the current floor and no real information about what the numbers for the floors actually mean. Since this is an airport rather than, say, an apartment building, using numbers for the floors doesn't really tell us much. And while the first floor is locked off by key card, there is no indication of that on the control panel itself.
 
