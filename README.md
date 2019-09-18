@@ -1,37 +1,32 @@
-## Welcome to GitHub Pages
+## Elevator Touchscreen Concept
 
-You can use the [editor on GitHub](https://github.com/JeffreyAllenLance/Elevator-Touchscreen/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+When an average user steps into an elevator, they have exactly one goal: to find the floor they need, select it, and travel. To this end, the best control panel designs present the available floor options in a clear and simple way that sensibly corresponds with the layout of the building. The panel is not unnecessarily cluttered, the buttons are clearly marked, and they provide some kind of feedback when pressed. In this project, we'll take a look at a design that could stand to be improved, propose some solutions, and offer an example for how those solutions might be implemented on a touch interface.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Panel With Design Issues
 
-### Markdown
+The following elevator can be found in the Philadelphia International Airport in Terminal B:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+![Image of PHL Elevator](https://github.com/JeffreyAllenLance/Elevator-Touchscreen/blob/master/Project%20Images/PHL-Elevator.png)
+![Gif of PHL Elevator](https://github.com/JeffreyAllenLance/Elevator-Touchscreen/blob/master/Project%20Images/PHL-Elevator.gif)
 
-```markdown
-Syntax highlighted code block
+As you can see, there are two major issues with this design. The first is that there are, for no discernible reason, two different sets of buttons to open and close the elevator doors, and neither gives any meaningful feedback when pressed. The second is that, although the floor buttons are simply marked and light up when pressed, they are laid out horizontally rather than vertically. 
 
-# Header 1
-## Header 2
-### Header 3
+There are also other more minor issues, such as no visual indicator of the current floor and no real information about what the numbers for the floors actually mean. Since this is an airport rather than, say, an apartment building, using numbers for the floors doesn't really tell us much. And while the first floor is locked off by key card, there is no indication of that on the control panel itself.
 
-- Bulleted
-- List
+### Possible Design Improvements
 
-1. Numbered
-2. List
+This design could be improved with a few simple changes. First, we can lay out the buttons for the floors vertically. This way, they match the layout of the building and correspond to the way the average user expects to see the floors listed. We can also take advantage of the display space provided by the touchscreen to write a description of the floors on the actual buttons, so that the user will know exactly which floor they need to choose.
 
-**Bold** and _Italic_ and `Code` text
+Next, we can have just one set of open and close buttons, placed right underneath the floor selection buttons. All of the buttons can light up when pressed, providing feedback to the user. For extra feedback, we can also indicate on the screen which floor the user is currently on, which direction the elevator is traveling, and indicate directly on the control surface that the bottom floor requires a key card.
 
-[Link](url) and ![Image](src)
-```
+Here is a simple sketch of the revised layout with the extra information:
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+![Image of Screen Sketch](https://github.com/JeffreyAllenLance/Elevator-Touchscreen/blob/master/Project%20Images/ScreenSketchRevised2.png)
 
-### Jekyll Themes
+### Implementation
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/JeffreyAllenLance/Elevator-Touchscreen/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Here is a possible implementation of the proposed solution. All of the proposed solutions from the sketch are implemented, with a few small changes. Rather than using the minimalist symbols for the open/close door buttons, which might be confusing at first glance, a picture representation and text description are provided to eliminate any possible confusion.
 
-### Support or Contact
+Also, to accomodate occupants with visual impairments, braille descriptions have been placed next to each button and a braille directive at the top tells users to touch the screen directly to the right. Moreover, a real-world implementation could provide auditory feedback for each action (selecting a floor, holding the doors, etc.), as well as force feedback in the form of vibration from the screen when pressed.
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+With these changes, any potential user should be able to step into the elevator, immediately see which floor they are on and find the floor they need, select that floor and receive feedback on the selection, and finally receive feedback that the elevator is moving to the selected floor.
