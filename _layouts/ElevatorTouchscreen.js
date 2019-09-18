@@ -82,10 +82,10 @@
         personGroundY = 270;
         personSecondX = 450;
         personSecondY = 168;
-        goingUpX = 350;
-        goingUpY = 480;
-        goingDownX = 350;
-        goingDownY = 480;
+        goingUpX = 370;
+        goingUpY = 500;
+        goingDownX = 370;
+        goingDownY = 500;
     }
 
     function draw(){
